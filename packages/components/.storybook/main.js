@@ -22,7 +22,7 @@ module.exports = {
             sourceMap: process.env.NODE_ENV !== "production",
             extension: ".css",
             babelOptions: {
-              configFile: path.resolve(__dirname, "../babel.config.js")
+              configFile: path.resolve(__dirname, "../babel.config.cjs")
             }
           }
         }

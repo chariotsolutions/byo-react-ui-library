@@ -99,5 +99,5 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "exclude": ["dist"],
-  "include": ["src/index.ts", "scripts", "index.d.ts"]
+  "include": ["scripts", "index.d.ts", ".eslintrc.cjs", "src"]
 }

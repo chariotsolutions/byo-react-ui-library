@@ -49,9 +49,11 @@ function esbuildConfig({
       plugins: [
         pnpPlugin(),
         nodeExternalsPlugin(),
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         linaria.default({
           sourceMap: isProd,
+          displayName: !isProd,
           babelOptions: {
             configFile: path.resolve(repoRoot, "./babel.config.cjs")
           }
