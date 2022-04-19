@@ -1,10 +1,12 @@
 import { styled } from "@linaria/react";
 import clsx from "clsx";
-import React, { FC, ReactNode } from "react";
+import React, { ReactNode, forwardRef } from "react";
 
-export type ButtonProps = {
-  variant?: "contained" | "text";
-  color?: "primary" | "secondary";
+import { makeRem } from "../../theme/theme.utils";
+
+export type ButtonProps = JSX.IntrinsicElements["button"] & {
+  csVariant?: "contained" | "text";
+  csColor?: "primary" | "secondary";
   children: ReactNode;
 };
 
@@ -12,8 +14,8 @@ const StyledButton = styled.button`
   display: block;
   background: none;
   border: none;
-  border-radius: 4px;
-  padding: 0 24px;
+  border-radius: ${makeRem(4)};
+  padding: 0 ${makeRem(24)};
 
   & + & {
     margin-bottom: 16px;
@@ -51,22 +53,25 @@ const StyledButton = styled.button`
  * 4. Make a utility to handle relatve sizing better
  */
 
-export const Button: FC<ButtonProps> = ({
-  variant,
-  color = "primary",
-  children
-}) => {
-  return (
-    <StyledButton
-      className={clsx({
-        base: !variant && !color,
-        contained: variant === "contained",
-        text: variant === "text",
-        primary: color === "primary",
-        secondary: color === "secondary"
-      })}
-    >
-      {children}
-    </StyledButton>
-  );
-};
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button(
+    { csVariant, csColor, children, className, ...restProps },
+    ref
+  ) {
+    return (
+      <StyledButton
+        {...restProps}
+        ref={ref}
+        className={clsx(className, {
+          base: !csVariant && !csColor,
+          contained: csVariant === "contained",
+          text: csVariant === "text",
+          primary: csColor === "primary",
+          secondary: csColor === "secondary"
+        })}
+      >
+        {children}
+      </StyledButton>
+    );
+  }
+);

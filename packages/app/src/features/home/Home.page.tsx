@@ -9,7 +9,7 @@ export const PageHome: FC = () => {
       }}
     >
       <h1>Welcome to the home page!</h1>
-      <Button variant="contained" color="primary">
+      <Button csVariant="contained" csColor="primary">
         Button!
       </Button>
     </div>

@@ -1,5 +1,5 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
-import React from "react";
+import React, { useRef } from "react";
 
 import { Button } from "./Button";
 
@@ -18,21 +18,26 @@ Base.args = {
 };
 
 export const VariantsAndColors = () => {
+  const buttonRef = useRef<HTMLButtonElement | null>(null);
   return (
     <>
       <Button>Base</Button>
-      <Button variant="contained" color="primary">
+      <Button csVariant="contained" csColor="primary">
         Contained - Primary
       </Button>
-      <Button variant="contained" color="secondary">
+      <Button csVariant="contained" csColor="secondary">
         Contained - Secondary
       </Button>
-      <Button variant="text" color="primary">
+      <Button csVariant="text" csColor="primary">
         Text - Primary
       </Button>
-      <Button variant="text" color="secondary">
+      <Button csVariant="text" csColor="secondary">
         Text - Secondary
       </Button>
+      <Button ref={buttonRef} className="bob">
+        Example
+      </Button>
+      <button>Example</button>
     </>
   );
 };
