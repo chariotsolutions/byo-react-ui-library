@@ -2,7 +2,6 @@ import path from "path";
 import * as url from "url";
 
 import linaria from "@linaria/esbuild";
-import { pnpPlugin } from "@yarnpkg/esbuild-plugin-pnp";
 import esbuild from "esbuild";
 import { nodeExternalsPlugin } from "esbuild-node-externals";
 
@@ -27,7 +26,7 @@ function esbuildConfig({
       entryPoints: [path.resolve(repoRoot, "./src/index.ts")],
       outdir: path.resolve(repoRoot, "./dist"),
       outExtension: {
-        ".js": outputFormat === "cjs" ? ".cjs" : ".js"
+        ".js": outputFormat === "cjs" ? ".cjs" : ".mjs"
       },
       bundle: true,
       splitting: isProd && outputFormat === "esm",
@@ -47,7 +46,6 @@ function esbuildConfig({
       tsconfig: path.resolve(repoRoot, "./tsconfig.json"),
       allowOverwrite: true,
       plugins: [
-        pnpPlugin(),
         nodeExternalsPlugin(),
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore

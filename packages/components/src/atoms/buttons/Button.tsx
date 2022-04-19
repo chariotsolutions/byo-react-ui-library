@@ -1,10 +1,12 @@
 import { styled } from "@linaria/react";
 import clsx from "clsx";
-import React, { FC, ReactNode } from "react";
+import React, { ReactNode, forwardRef } from "react";
 
-export type ButtonProps = {
-  variant?: "contained" | "text";
-  color?: "primary" | "secondary";
+import { makeRem } from "../../theme/theme.utils";
+
+export type ButtonProps = JSX.IntrinsicElements["button"] & {
+  csVariant?: "contained" | "text";
+  csColor?: "primary" | "secondary";
   children: ReactNode;
 };
 
@@ -14,25 +16,25 @@ const StyledButton = styled.button`
   border: none;
 
   &:not(.base) {
-    height: 2rem;
+    height: ${makeRem(32)};
   }
 
   &.contained {
     &.primary {
-      background-color: #20a4f3;
+      background-color: var(--color-primary);
       color: white;
     }
     &.secondary {
-      background-color: #59f8e8;
+      background-color: var(--color-secondary);
     }
   }
 
   &.text {
     &.primary {
-      color: #20a4f3;
+      color: var(--color-primary);
     }
     &.secondary {
-      color: #59f8e8;
+      color: var(--color-secondary);
     }
   }
 `;
@@ -45,22 +47,21 @@ const StyledButton = styled.button`
  * 4. Make a utility to handle relatve sizing better
  */
 
-export const Button: FC<ButtonProps> = ({
-  variant,
-  color = "primary",
-  children
-}) => {
-  return (
-    <StyledButton
-      className={clsx({
-        base: !variant && !color,
-        contained: variant === "contained",
-        text: variant === "text",
-        primary: color === "primary",
-        secondary: color === "secondary"
-      })}
-    >
-      {children}
-    </StyledButton>
-  );
-};
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button({ csVariant, csColor = "primary", children }, ref) {
+    return (
+      <StyledButton
+        className={clsx({
+          base: !csVariant && !csColor,
+          contained: csVariant === "contained",
+          text: csVariant === "text",
+          primary: csColor === "primary",
+          secondary: csColor === "secondary"
+        })}
+        ref={ref}
+      >
+        {children}
+      </StyledButton>
+    );
+  }
+);
