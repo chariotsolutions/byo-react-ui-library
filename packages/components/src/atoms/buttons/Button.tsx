@@ -12,6 +12,12 @@ const StyledButton = styled.button`
   display: block;
   background: none;
   border: none;
+  border-radius: 4px;
+  padding: 0 24px;
+
+  & + & {
+    margin-bottom: 16px;
+  }
 
   &:not(.base) {
     height: 2rem;

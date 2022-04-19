@@ -33,7 +33,6 @@ export const VariantsAndColors = () => {
       <Button variant="text" color="secondary">
         Text - Secondary
       </Button>
-      <Button>Example</Button>
     </>
   );
 };
