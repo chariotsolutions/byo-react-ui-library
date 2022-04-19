@@ -21,14 +21,19 @@ export const VariantsAndColors = () => {
   return (
     <>
       <Button>Base</Button>
-      <Button variant="contained">Contained - Primary</Button>
+      <Button variant="contained" color="primary">
+        Contained - Primary
+      </Button>
       <Button variant="contained" color="secondary">
         Contained - Secondary
       </Button>
-      <Button variant="text">Text - Primary</Button>
+      <Button variant="text" color="primary">
+        Text - Primary
+      </Button>
       <Button variant="text" color="secondary">
         Text - Secondary
       </Button>
+      <Button>Example</Button>
     </>
   );
 };
