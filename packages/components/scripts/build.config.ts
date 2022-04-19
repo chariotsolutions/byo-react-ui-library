@@ -40,7 +40,7 @@ function esbuildConfig({
        * minify any code. Minification also strips out PURE
        * statements for dead code elimination
        */
-      // minify: isProd,
+      minify: isProd,
       watch: watch
         ? {
             onRebuild(error, result) {
