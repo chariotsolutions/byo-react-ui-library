@@ -27,7 +27,7 @@ function esbuildConfig({
       entryPoints: [path.resolve(repoRoot, "./src/index.ts")],
       outdir: path.resolve(repoRoot, "./dist"),
       outExtension: {
-        ".js": outputFormat === "cjs" ? ".cjs" : ".js"
+        ".js": outputFormat === "cjs" ? ".js" : ".mjs"
       },
       bundle: true,
       splitting: isProd && outputFormat === "esm",
@@ -63,7 +63,7 @@ function esbuildConfig({
     .then(() => {
       console.log(
         `Successfully built "@internal/components" in ${
-          outputFormat === "cjs" ? "in cjs" : "in mjs"
+          outputFormat === "cjs" ? "in js" : "in mjs"
         }.`
       );
     })
