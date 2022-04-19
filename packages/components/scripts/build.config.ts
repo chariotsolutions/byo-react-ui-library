@@ -30,8 +30,17 @@ function esbuildConfig({
         ".js": outputFormat === "cjs" ? ".cjs" : ".js"
       },
       bundle: true,
-      splitting: isProd && outputFormat === "esm",
-      minify: isProd,
+      /**
+       * Code splitting isn't working. It will destroy pure exports
+       * https://github.com/evanw/esbuild/issues/16
+       */
+      // splitting: isProd && outputFormat === "esm",
+      /**
+       * Minification is unnecessary since the app bundler will
+       * minify any code. Minification also strips out PURE
+       * statements for dead code elimination
+       */
+      // minify: isProd,
       watch: watch
         ? {
             onRebuild(error, result) {

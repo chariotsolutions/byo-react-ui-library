@@ -20,7 +20,7 @@
     "types": "yarn tsc --project tsconfig.types.json",
     "dev": "yarn node --loader ts-node/esm ./scripts/build.dev.ts & yarn types --watch & yarn storybook",
     "build": "yarn node --loader ts-node/esm ./scripts/build.prod.ts & yarn types",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --modern",
     "build-storybook": "build-storybook"
   },
   "repository": {
