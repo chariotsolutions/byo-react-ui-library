@@ -1,6 +1,5 @@
 export * from "./atoms/buttons/Button";
 export * from "./atoms/inputs/InputText";
-export * from "./atoms/inputs/InputLabel";
 
 export * from "./molecules/forms/FormFieldEmail";
 export * from "./molecules/forms/FormFieldText";

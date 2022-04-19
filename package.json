@@ -4,7 +4,6 @@
   "private": true,
   "description": "A template for creating a simple, scalable and light-weight react component library; in lieu a 3rd party component library",
   "scripts": {
-    "build": "yarn workspaces foreach -ptiv run build",
     "dev": "yarn workspace app dev & yarn workspace @internal/components dev"
   },
   "repository": {
