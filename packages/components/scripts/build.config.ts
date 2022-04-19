@@ -27,7 +27,7 @@ function esbuildConfig({
       entryPoints: [path.resolve(repoRoot, "./src/index.ts")],
       outdir: path.resolve(repoRoot, "./dist"),
       outExtension: {
-        ".js": outputFormat === "cjs" ? ".cjs" : ".js"
+        ".js": outputFormat === "cjs" ? ".cjs" : ".mjs"
       },
       bundle: true,
       /**
