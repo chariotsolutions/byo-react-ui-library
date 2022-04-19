@@ -1,19 +1,16 @@
-// import React from "react";
+import React from "react";
 
-// export default {
-//   title: "Molecules / Forms / FormFields"
-// };
+import { FormFieldText } from "./FormFieldText";
 
-// export const AllFields = () => {
-//   return (
-//     <>
-//       {/* <FormFieldText />
-//       <FormFieldEmail />
-//       <FormFieldNumber /> */}
-//     </>
-//   );
-// };
+export default {
+  title: "Molecules / Forms / FormFields"
+};
 
-// eslint-disable-next-line storybook/story-exports
-export default {};
-export {};
+export const AllFields = () => {
+  return (
+    <>
+      <FormFieldText id="fftext" />
+      <FormFieldText id="fftest2" csLabel="Input label" />
+    </>
+  );
+};
