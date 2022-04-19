@@ -1,8 +1,11 @@
 import { Button } from "@internal/components";
-import { useState } from "react";
 
 function App() {
-  return <Button>This is a button!</Button>;
+  return (
+    <Button color="primary" variant="contained">
+      This is a button!
+    </Button>
+  );
 }
 
 export default App;
